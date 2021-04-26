@@ -13,12 +13,14 @@ namespace Negocios
         private SqlCommand comando;
         private SqlDataReader lector;
 
+        //CADENAS PABLO
+
         string cadenaConexionFede = "data source=DESKTOP-EHB4SN8; initial catalog=CATALOGO_DB; integrated security=TRUE";
-        string cadenaConexionPablo = "data source = (local)\\SQLEXPRESS; initial catalog =CATALAGO_DB; integrated security = true;";
+        string cadenaConexionPablo = "data source = (local)\\SQLEXPRESS; initial catalog =CATALOGO_DB; integrated security = true;";
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection(cadenaConexionFede); 
+            conexion = new SqlConnection(cadenaConexionPablo); 
             comando = new SqlCommand(); 
         }
 
