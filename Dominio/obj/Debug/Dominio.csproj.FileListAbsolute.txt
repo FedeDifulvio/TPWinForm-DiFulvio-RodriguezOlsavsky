@@ -1,0 +1,6 @@
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Dominio\bin\Debug\Dominio.dll
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Dominio\bin\Debug\Dominio.pdb
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Dominio\obj\Debug\Dominio.dll
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Dominio\obj\Debug\Dominio.pdb

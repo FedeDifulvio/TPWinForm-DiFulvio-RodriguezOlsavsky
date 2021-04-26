@@ -1,0 +1,15 @@
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Presentacion\bin\Debug\Presentacion.exe.config
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Presentacion\bin\Debug\Presentacion.exe
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Presentacion\bin\Debug\Presentacion.pdb
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Presentacion\bin\Debug\Dominio.dll
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Presentacion\bin\Debug\Negocios.dll
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Presentacion\bin\Debug\Dominio.pdb
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Presentacion\bin\Debug\Negocios.pdb
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Presentacion\obj\Debug\Presentacion.csprojAssemblyReference.cache
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Presentacion\obj\Debug\Presentacion.Form1.resources
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Presentacion\obj\Debug\Presentacion.Properties.Resources.resources
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Presentacion\obj\Debug\Presentacion.csproj.GenerateResource.cache
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Presentacion\obj\Debug\Presentacion.exe
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\Presentacion\obj\Debug\Presentacion.pdb
