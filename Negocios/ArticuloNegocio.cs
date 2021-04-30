@@ -79,6 +79,26 @@ namespace Negocios
             }
         }
     
+        public void EliminarArticulo(string id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string consulta = "DELETE from Articulos where id="+ id;
+
+            try
+            {
+                datos.setearConsulta(consulta);
+                datos.ejecutarAccion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
     }
 
 }

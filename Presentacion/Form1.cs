@@ -25,9 +25,18 @@ namespace Presentacion
             cargarArticulos();
         }
 
-        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e) ///Carga la imagen
         {
-            pbArticulo.Load(dgvArticulos.CurrentRow.Cells[4].Value.ToString());
+            try
+            {
+                pbArticulo.Load(dgvArticulos.CurrentRow.Cells[4].Value.ToString());
+            }
+            catch (Exception)
+            {
+
+                ///pbArticulo=null;
+            }
+          
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -141,6 +150,17 @@ namespace Presentacion
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
             //cargarArticulos(txtBuscar.Text);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            DialogResult respuesta=MessageBox.Show("¿Está seguro que desea eliminar el articulo "+ dgvArticulos.CurrentRow.Cells[2].Value.ToString()+" ?", "Elimminar Articulo", MessageBoxButtons.YesNo);
+            if (respuesta==DialogResult.Yes)
+            {
+                articuloNegocio.EliminarArticulo(dgvArticulos.CurrentRow.Cells[0].Value.ToString());
+                cargarArticulos();
+            }
         }
     }
       
