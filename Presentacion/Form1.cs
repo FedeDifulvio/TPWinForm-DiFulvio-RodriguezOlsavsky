@@ -59,6 +59,84 @@ namespace Presentacion
 
 
         }
+        public void cargarArticulos( string filtro)
+        {
+            List<Articulos> articulosFiltrados = new List<Articulos>(); 
+
+            try
+            {
+                foreach (Articulos item in listArticulos) { 
+                
+                    if(chequearFiltros(item, filtro)){   
+
+                        articulosFiltrados.Add(item); 
+                    }
+                }
+
+                dgvArticulos.DataSource = articulosFiltrados;  
+              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+        } 
+
+        public bool chequearFiltros( Articulos item, string filtro)
+        {
+            if (item.Nombre.ToLower().Contains(filtro.ToLower()))
+            {
+                return true; 
+            }
+
+            if (item.Marca.Descripcion.ToLower().Contains(filtro.ToLower()))
+            {
+                return true;
+            }
+
+            if (item.Categoria.Descripcion.ToLower().Contains(filtro.ToLower()))
+            {
+                return true;
+            }
+
+            return false; 
+        }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            Detalle detalle = new Detalle(obtenerArticuloDataGrid()); 
+            detalle.ShowDialog(); 
+        } 
+
+        public Articulos obtenerArticuloDataGrid()
+        {
+            Articulos articulo = new Articulos();
+
+            articulo.Codigo = dgvArticulos.CurrentRow.Cells[1].Value.ToString(); 
+            articulo.Nombre = dgvArticulos.CurrentRow.Cells[2].Value.ToString();
+            articulo.Descripcion = dgvArticulos.CurrentRow.Cells[3].Value.ToString();
+            articulo.Precio =(decimal)dgvArticulos.CurrentRow.Cells[5].Value;
+            articulo.Marca = new Marca(dgvArticulos.CurrentRow.Cells[6].Value.ToString());
+            articulo.Categoria = new Categorias(dgvArticulos.CurrentRow.Cells[7].Value.ToString());
+
+            return articulo; 
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            cargarArticulos(txtBuscar.Text); 
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if(txtBuscar.Text == "")
+            {
+                cargarArticulos();
+            }     
+        }
     }
       
 }

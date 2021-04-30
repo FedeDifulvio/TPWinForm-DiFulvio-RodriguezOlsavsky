@@ -29,6 +29,7 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.AgregarMarca = new System.Windows.Forms.ComboBox();
             this.AgregarCategoria = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,6 +46,8 @@ namespace Presentacion
             this.btnCancelarA = new System.Windows.Forms.Button();
             this.AgregarURL = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // AgregarMarca
@@ -123,6 +126,7 @@ namespace Presentacion
             this.AgregarCodigo.Name = "AgregarCodigo";
             this.AgregarCodigo.Size = new System.Drawing.Size(100, 20);
             this.AgregarCodigo.TabIndex = 8;
+            this.AgregarCodigo.TextChanged += new System.EventHandler(this.AgregarCodigo_TextChanged);
             // 
             // AgregarNombre
             // 
@@ -130,6 +134,7 @@ namespace Presentacion
             this.AgregarNombre.Name = "AgregarNombre";
             this.AgregarNombre.Size = new System.Drawing.Size(100, 20);
             this.AgregarNombre.TabIndex = 9;
+            this.AgregarNombre.TextChanged += new System.EventHandler(this.AgregarNombre_TextChanged);
             // 
             // AgregarDescripción
             // 
@@ -137,13 +142,17 @@ namespace Presentacion
             this.AgregarDescripción.Name = "AgregarDescripción";
             this.AgregarDescripción.Size = new System.Drawing.Size(221, 20);
             this.AgregarDescripción.TabIndex = 10;
+            this.AgregarDescripción.TextChanged += new System.EventHandler(this.AgregarDescripción_TextChanged);
             // 
             // AgregarPrecio
             // 
             this.AgregarPrecio.Location = new System.Drawing.Point(96, 154);
+            this.AgregarPrecio.MaxLength = 10;
             this.AgregarPrecio.Name = "AgregarPrecio";
             this.AgregarPrecio.Size = new System.Drawing.Size(100, 20);
             this.AgregarPrecio.TabIndex = 11;
+            this.AgregarPrecio.TextChanged += new System.EventHandler(this.AgregarPrecio_TextChanged);
+            this.AgregarPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AgregarPrecio_KeyPress);
             // 
             // btnAgregar
             // 
@@ -171,6 +180,7 @@ namespace Presentacion
             this.AgregarURL.Name = "AgregarURL";
             this.AgregarURL.Size = new System.Drawing.Size(221, 20);
             this.AgregarURL.TabIndex = 15;
+            this.AgregarURL.TextChanged += new System.EventHandler(this.AgregarURL_TextChanged);
             // 
             // label7
             // 
@@ -181,11 +191,15 @@ namespace Presentacion
             this.label7.TabIndex = 14;
             this.label7.Text = "Imagen URL";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 450);
+            this.ClientSize = new System.Drawing.Size(394, 405);
             this.Controls.Add(this.AgregarURL);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnCancelarA);
@@ -205,6 +219,7 @@ namespace Presentacion
             this.Name = "frmAgregar";
             this.Text = "Agregar Artículo";
             this.Load += new System.EventHandler(this.frmAgregar_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,5 +243,6 @@ namespace Presentacion
         private System.Windows.Forms.Button btnCancelarA;
         private System.Windows.Forms.TextBox AgregarURL;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
