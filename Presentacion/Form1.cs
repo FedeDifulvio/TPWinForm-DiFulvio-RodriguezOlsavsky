@@ -137,6 +137,11 @@ namespace Presentacion
                 dgvArticulos.DataSource = listArticulos;  
             }     
         }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //cargarArticulos(txtBuscar.Text);
+        }
     }
       
 }
