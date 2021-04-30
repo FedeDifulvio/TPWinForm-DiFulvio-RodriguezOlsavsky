@@ -134,7 +134,7 @@ namespace Presentacion
         {
             if(txtBuscar.Text == "")
             {
-                cargarArticulos();
+                dgvArticulos.DataSource = listArticulos;  
             }     
         }
     }
