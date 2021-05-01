@@ -15,9 +15,10 @@ namespace Presentacion
     public partial class frmModificar : Form
     {
         int id;
-        public frmModificar(Articulos articulo)
+        public frmModificar(Dominio.Articulos articulo)
         {
             InitializeComponent();
+           
             NegocioMarca negocioMarca = new NegocioMarca();
             NegocioCategoria negocioCategoria = new NegocioCategoria();
             try
@@ -35,13 +36,14 @@ namespace Presentacion
                 ModificarCategoria.DataSource = negocioCategoria.ListaCategoria();
                 ModificarCategoria.ValueMember = "ID";
                 ModificarCategoria.DisplayMember = "Descripcion";
-                ModificarCategoria.SelectedValue = articulo.Categoria.ID;
+                ModificarCategoria.SelectedValue = articulo.Categoria.ID; 
 
             }
             catch (Exception ex)
             {
-
+                 
                 MessageBox.Show(ex.Message);
+
             }            
             
 
@@ -64,28 +66,94 @@ namespace Presentacion
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            try
+            if (validaciones())
             {
-                Articulos articulo = new Articulos();
-                ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-                articulo.ID = id;
-                articulo.Codigo = ModificarCodigo.Text;
-                articulo.Nombre = ModificarNombre.Text;
-                articulo.Descripcion = ModificarDescripción.Text;
-                articulo.Precio = decimal.Parse(ModificarPrecio.Text);
-                articulo.imagenURL = ModificarURL.Text;
-                articulo.Marca = (Marca)ModificarMarca.SelectedItem;
-                articulo.Categoria = (Categorias)ModificarCategoria.SelectedItem;
-                articuloNegocio.ModificarArticulo(articulo);
-                MessageBox.Show("¡Modificado con éxito!", "Modificar", MessageBoxButtons.OK);
-                Close();
-            }
-            catch (Exception ex)
-            {
+                try
+                {
+                    Dominio.Articulos articulo = new Dominio.Articulos();
+                    ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+                    articulo.ID = id;
+                    articulo.Codigo = ModificarCodigo.Text;
+                    articulo.Nombre = ModificarNombre.Text;
+                    articulo.Descripcion = ModificarDescripción.Text;
+                    articulo.Precio = decimal.Parse(ModificarPrecio.Text);
+                    articulo.imagenURL = ModificarURL.Text;
+                    articulo.Marca = (Marca)ModificarMarca.SelectedItem;
+                    articulo.Categoria = (Categorias)ModificarCategoria.SelectedItem;
+                    articuloNegocio.ModificarArticulo(articulo);
+                    MessageBox.Show("¡Modificado con éxito!", "Modificar", MessageBoxButtons.OK);
+                    Close();
+                }
+                catch (Exception ex)
+                {
 
-                MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message);
+                }
+
             }
+            
            
         }
+
+        public bool validaciones()
+        {
+
+            if (ModificarCodigo.Text == "")
+            {
+                errorProviderM.SetError(ModificarCodigo, "falta agregar el codigo");
+                return false;
+            }
+
+            if (ModificarNombre.Text == "")
+            {
+                errorProviderM.SetError(ModificarNombre, "falta agregar el nombre");
+                return false;
+            }
+
+
+            if (ModificarDescripción.Text == "")
+            {
+                errorProviderM.SetError(ModificarDescripción, "falta agregar el codigo");
+                return false;
+            }
+
+            if (ModificarPrecio.Text == "")
+            {
+                errorProviderM.SetError(ModificarPrecio, "falta agregar el Precio");
+                return false;
+            }
+
+            if (ModificarURL.Text == "")
+            {
+                errorProviderM.SetError(ModificarURL, "falta agregar el URL de la imagen");
+                return false;
+            }
+
+            return true;
+
+        }
+
+        private void ModificarCodigo_TextChanged(object sender, EventArgs e)
+        {
+            errorProviderM.Clear();
+        }
+
+        private void ModificarNombre_TextChanged(object sender, EventArgs e)
+        {
+            errorProviderM.Clear();
+        }
+
+        private void ModificarDescripción_TextChanged(object sender, EventArgs e)
+        {
+            errorProviderM.Clear();
+        }
+
+        private void ModificarPrecio_TextChanged(object sender, EventArgs e)
+        {
+            errorProviderM.Clear();
+        }
+
+      
+
     }
 }

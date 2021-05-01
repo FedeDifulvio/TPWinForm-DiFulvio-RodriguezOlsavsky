@@ -13,7 +13,7 @@ namespace Presentacion
 {
     public partial class Detalle : Form
     {
-        public Detalle(Articulos articulo)
+        public Detalle(Dominio.Articulos articulo)
         {
             InitializeComponent();
             detalleCodigo.Text = articulo.Codigo;

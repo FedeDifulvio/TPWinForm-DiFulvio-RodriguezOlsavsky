@@ -45,7 +45,7 @@ namespace Presentacion
         {
             if (validaciones()){
 
-                Articulos articulo = new Articulos();
+                Dominio.Articulos articulo = new Dominio.Articulos();
                 ArticuloNegocio negocio = new ArticuloNegocio();
 
                 try
@@ -92,6 +92,12 @@ namespace Presentacion
             if (AgregarDescripción.Text == "")
             {
                 errorProvider1.SetError(AgregarDescripción, "falta agregar el codigo");
+                return false;
+            }
+
+            if (AgregarPrecio.Text == "")
+            {
+                errorProvider1.SetError(AgregarPrecio, "falta agregar el Precio");
                 return false;
             }
 

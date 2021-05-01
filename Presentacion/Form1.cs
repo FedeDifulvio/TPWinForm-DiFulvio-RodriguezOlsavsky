@@ -12,10 +12,10 @@ using Dominio;
 
 namespace Presentacion
 {
-    public partial class Form1 : Form
+    public partial class Articulos : Form
     {
-        private List<Articulos> listArticulos;
-        public Form1()
+        private List<Dominio.Articulos> listArticulos;
+        public Articulos()
         {
             InitializeComponent();
         }
@@ -33,7 +33,9 @@ namespace Presentacion
             }
             catch (Exception)
             {
-                MessageBox.Show("imagen inválida o no disponible", "error al cargar la URL",MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("imagen inválida o no disponible", "error al cargar la URL",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                pbArticulo.Load("https://alasmutual.com/nueva/wp-content/themes/consultix/images/no-image-found-360x250.png"); 
+                 
             }
           
         }
@@ -69,11 +71,11 @@ namespace Presentacion
         }
         public void cargarArticulos( string filtro)
         {
-            List<Articulos> articulosFiltrados = new List<Articulos>(); 
+            List<Dominio.Articulos> articulosFiltrados = new List<Dominio.Articulos>(); 
 
             try
             {
-                foreach (Articulos item in listArticulos) { 
+                foreach (Dominio.Articulos item in listArticulos) { 
                 
                     if(chequearFiltros(item, filtro)){   
 
@@ -92,7 +94,7 @@ namespace Presentacion
 
         } 
 
-        public bool chequearFiltros( Articulos item, string filtro)
+        public bool chequearFiltros(Dominio.Articulos item, string filtro)
         {
             if (item.Nombre.ToLower().Contains(filtro.ToLower()))
             {
@@ -118,11 +120,11 @@ namespace Presentacion
             detalle.ShowDialog(); 
         } 
 
-        public Articulos obtenerArticuloDataGrid()
+        public Dominio.Articulos obtenerArticuloDataGrid()
         {
-            Articulos articulo = new Articulos();
+            Dominio.Articulos articulo = new Dominio.Articulos();
 
-            articulo =(Articulos)dgvArticulos.CurrentRow.DataBoundItem;
+            articulo =(Dominio.Articulos)dgvArticulos.CurrentRow.DataBoundItem;
 
             return articulo;  
 
@@ -165,8 +167,8 @@ namespace Presentacion
 
         private void bntModificar_Click(object sender, EventArgs e)
         {
-            Articulos articulo = new Articulos();
-            articulo = (Articulos)dgvArticulos.CurrentRow.DataBoundItem;
+            Dominio.Articulos articulo = new Dominio.Articulos();
+            articulo = (Dominio.Articulos)dgvArticulos.CurrentRow.DataBoundItem;
             frmModificar frmModificar = new frmModificar(articulo);
             frmModificar.ShowDialog();
             cargarArticulos();

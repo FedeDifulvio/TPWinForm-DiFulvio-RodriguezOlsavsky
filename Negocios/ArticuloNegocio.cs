@@ -104,7 +104,7 @@ namespace Negocios
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string consulta = "UPDATE Articulos SET CODIGO=@codigo, NOMBRE=@nombre, DESCRIPCION=@descripcion, PRECIO=@precio, IDMARCA=@marca, IDCATEGORIA=@categoria where ID=@ID";
+                string consulta = "UPDATE Articulos SET CODIGO=@codigo, NOMBRE=@nombre, DESCRIPCION=@descripcion, PRECIO=@precio, IDMARCA=@marca, IDCATEGORIA=@categoria, ImagenURL=@url where ID=@ID";
                 datos.setearConsulta(consulta);
                 datos.setearParametro("@codigo", articulo.Codigo);
                 datos.setearParametro("@nombre", articulo.Nombre);
@@ -113,6 +113,7 @@ namespace Negocios
                 datos.setearParametro("@marca", articulo.Marca.ID);
                 datos.setearParametro("@categoria", articulo.Categoria.ID);
                 datos.setearParametro("@id", articulo.ID);
+                datos.setearParametro("@url", articulo.imagenURL); 
                 datos.ejecutarAccion();
             }
             catch (Exception)
