@@ -169,6 +169,7 @@ namespace Presentacion
             articulo = (Articulos)dgvArticulos.CurrentRow.DataBoundItem;
             frmModificar frmModificar = new frmModificar(articulo);
             frmModificar.ShowDialog();
+            cargarArticulos();
         }
     }
       

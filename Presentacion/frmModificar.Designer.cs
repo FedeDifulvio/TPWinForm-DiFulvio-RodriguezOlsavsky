@@ -76,6 +76,7 @@ namespace Presentacion
             this.btnCancelarM.TabIndex = 29;
             this.btnCancelarM.Text = "CANCELAR";
             this.btnCancelarM.UseVisualStyleBackColor = true;
+            this.btnCancelarM.Click += new System.EventHandler(this.btnCancelarM_Click);
             // 
             // btnModificar
             // 
@@ -85,6 +86,7 @@ namespace Presentacion
             this.btnModificar.TabIndex = 28;
             this.btnModificar.Text = "MODIFICAR";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // ModificarPrecio
             // 

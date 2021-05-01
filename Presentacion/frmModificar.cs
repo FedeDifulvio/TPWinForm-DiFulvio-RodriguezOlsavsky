@@ -14,25 +14,36 @@ namespace Presentacion
 {
     public partial class frmModificar : Form
     {
+        int id;
         public frmModificar(Articulos articulo)
         {
             InitializeComponent();
             NegocioMarca negocioMarca = new NegocioMarca();
             NegocioCategoria negocioCategoria = new NegocioCategoria();
-            ModificarCodigo.Text = articulo.Codigo;
-            ModificarNombre.Text = articulo.Nombre;
-            ModificarDescripción.Text = articulo.Descripcion;
-            ModificarPrecio.Text = articulo.Precio.ToString();
+            try
+            {
+                id = articulo.ID;
+                ModificarCodigo.Text = articulo.Codigo;
+                ModificarNombre.Text = articulo.Nombre;
+                ModificarDescripción.Text = articulo.Descripcion;
+                ModificarPrecio.Text = articulo.Precio.ToString();
+                ModificarURL.Text = articulo.imagenURL;
+                ModificarMarca.DataSource = negocioMarca.ListaMarca();
+                ModificarMarca.ValueMember = "ID";
+                ModificarMarca.DisplayMember = "Descripcion";
+                ModificarMarca.SelectedValue = articulo.Marca.ID;
+                ModificarCategoria.DataSource = negocioCategoria.ListaCategoria();
+                ModificarCategoria.ValueMember = "ID";
+                ModificarCategoria.DisplayMember = "Descripcion";
+                ModificarCategoria.SelectedValue = articulo.Categoria.ID;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }            
             
-            ModificarURL.Text = articulo.imagenURL;
-            ModificarMarca.DataSource = negocioMarca.ListaMarca();
-            ModificarMarca.ValueMember = "ID";
-            ModificarMarca.DisplayMember = "Descripcion";
-            ModificarMarca.SelectedValue = articulo.Marca.ID;
-            ModificarCategoria.DataSource = negocioCategoria.ListaCategoria();
-            ModificarCategoria.ValueMember = "ID";
-            ModificarCategoria.DisplayMember = "Descripcion";
-            ModificarCategoria.SelectedValue = articulo.Categoria.ID;
 
         }
 
@@ -44,6 +55,37 @@ namespace Presentacion
                 e.Handled = true;
                 errorProviderM.SetError(ModificarPrecio, "El precio debe ser un número");
             }
+        }
+
+        private void btnCancelarM_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Articulos articulo = new Articulos();
+                ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+                articulo.ID = id;
+                articulo.Codigo = ModificarCodigo.Text;
+                articulo.Nombre = ModificarNombre.Text;
+                articulo.Descripcion = ModificarDescripción.Text;
+                articulo.Precio = decimal.Parse(ModificarPrecio.Text);
+                articulo.imagenURL = ModificarURL.Text;
+                articulo.Marca = (Marca)ModificarMarca.SelectedItem;
+                articulo.Categoria = (Categorias)ModificarCategoria.SelectedItem;
+                articuloNegocio.ModificarArticulo(articulo);
+                MessageBox.Show("¡Modificado con éxito!", "Modificar", MessageBoxButtons.OK);
+                Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+           
         }
     }
 }
