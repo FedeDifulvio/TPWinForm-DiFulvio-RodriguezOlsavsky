@@ -56,6 +56,7 @@ namespace Presentacion
             this.pbArticulo.Location = new System.Drawing.Point(734, 43);
             this.pbArticulo.Name = "pbArticulo";
             this.pbArticulo.Size = new System.Drawing.Size(386, 357);
+            this.pbArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbArticulo.TabIndex = 1;
             this.pbArticulo.TabStop = false;
             // 
@@ -120,7 +121,7 @@ namespace Presentacion
             this.txtBuscar.Size = new System.Drawing.Size(315, 20);
             this.txtBuscar.TabIndex = 7;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
-            this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
+            
             // 
             // label1
             // 

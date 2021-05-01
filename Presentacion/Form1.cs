@@ -33,8 +33,7 @@ namespace Presentacion
             }
             catch (Exception)
             {
-
-                ///pbArticulo=null;
+                MessageBox.Show("imagen inválida o no disponible", "error al cargar la URL",MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
           
         }
@@ -123,14 +122,9 @@ namespace Presentacion
         {
             Articulos articulo = new Articulos();
 
-            articulo.Codigo = dgvArticulos.CurrentRow.Cells[1].Value.ToString(); 
-            articulo.Nombre = dgvArticulos.CurrentRow.Cells[2].Value.ToString();
-            articulo.Descripcion = dgvArticulos.CurrentRow.Cells[3].Value.ToString();
-            articulo.Precio =(decimal)dgvArticulos.CurrentRow.Cells[5].Value;
-            articulo.Marca = new Marca(dgvArticulos.CurrentRow.Cells[6].Value.ToString());
-            articulo.Categoria = new Categorias(dgvArticulos.CurrentRow.Cells[7].Value.ToString());
+            articulo =(Articulos)dgvArticulos.CurrentRow.DataBoundItem;
 
-            return articulo; 
+            return articulo;  
 
         }
 
@@ -147,19 +141,25 @@ namespace Presentacion
             }     
         }
 
-        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //cargarArticulos(txtBuscar.Text);
-        }
+      
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-            DialogResult respuesta=MessageBox.Show("¿Está seguro que desea eliminar el articulo "+ dgvArticulos.CurrentRow.Cells[2].Value.ToString()+" ?", "Elimminar Articulo", MessageBoxButtons.YesNo);
+            DialogResult respuesta=MessageBox.Show("¿Está seguro que desea eliminar el articulo "+ dgvArticulos.CurrentRow.Cells[2].Value.ToString()+" ?", "Elimminar Articulo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (respuesta==DialogResult.Yes)
             {
-                articuloNegocio.EliminarArticulo(dgvArticulos.CurrentRow.Cells[0].Value.ToString());
-                cargarArticulos();
+                try
+                {
+                    articuloNegocio.EliminarArticulo(dgvArticulos.CurrentRow.Cells[0].Value.ToString());
+                    cargarArticulos();
+                    MessageBox.Show("Se ha eliminado con éxito.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message); 
+                }
+               
             }
         }
     }

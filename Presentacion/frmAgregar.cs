@@ -59,7 +59,7 @@ namespace Presentacion
                     articulo.Categoria = (Categorias)AgregarCategoria.SelectedItem;
 
                     negocio.AgregarArticulo(articulo);
-                    MessageBox.Show("Agregado con éxito");
+                    MessageBox.Show("¡Agregado con éxito!", "Agregar", MessageBoxButtons.OK); 
                     Close();
                 }
                 catch (Exception ex)
