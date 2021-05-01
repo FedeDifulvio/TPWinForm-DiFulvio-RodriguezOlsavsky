@@ -162,6 +162,14 @@ namespace Presentacion
                
             }
         }
+
+        private void bntModificar_Click(object sender, EventArgs e)
+        {
+            Articulos articulo = new Articulos();
+            articulo = (Articulos)dgvArticulos.CurrentRow.DataBoundItem;
+            frmModificar frmModificar = new frmModificar(articulo);
+            frmModificar.ShowDialog();
+        }
     }
       
 }

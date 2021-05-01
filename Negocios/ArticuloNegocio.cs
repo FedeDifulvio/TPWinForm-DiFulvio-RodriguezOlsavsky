@@ -13,7 +13,7 @@ namespace Negocios
         {
             List<Articulos> lista = new List<Articulos>();
             AccesoDatos datos = new AccesoDatos();
-            string consulta = "select A.id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categorias, A.ImagenUrl, A.Precio from Articulos A inner join Categorias C on A.IdCategoria = C.Id inner join Marcas M on M.Id = A.IdMarca ";
+            string consulta = "select A.id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion Marca, M.ID MarcaID, C.Descripcion Categorias, C.ID CategoriaID, A.ImagenUrl, A.Precio from Articulos A inner join Categorias C on A.IdCategoria = C.Id inner join Marcas M on M.Id = A.IdMarca ";
 
 
             try
@@ -30,8 +30,8 @@ namespace Negocios
                     articulo.Descripcion = (string)datos.Lector["Descripcion"];
                     articulo.imagenURL = (string)datos.Lector["ImagenUrl"];
                     articulo.Precio = (decimal)datos.Lector["Precio"];
-                    articulo.Marca = new Marca((string)datos.Lector["Marca"]);
-                    articulo.Categoria = new Categorias((string)datos.Lector["Categorias"]);
+                    articulo.Marca = new Marca((int)datos.Lector["MarcaID"], (string)datos.Lector["Marca"]);
+                    articulo.Categoria = new Categorias((int)datos.Lector["CategoriaID"], (string)datos.Lector["Categorias"]);
 
                     lista.Add(articulo);
 

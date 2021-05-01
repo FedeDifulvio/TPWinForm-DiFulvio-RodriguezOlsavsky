@@ -102,6 +102,7 @@ namespace Presentacion
             this.bntModificar.TabIndex = 5;
             this.bntModificar.Text = "Modificar";
             this.bntModificar.UseVisualStyleBackColor = true;
+            this.bntModificar.Click += new System.EventHandler(this.bntModificar_Click);
             // 
             // btnBuscar
             // 
@@ -121,7 +122,6 @@ namespace Presentacion
             this.txtBuscar.Size = new System.Drawing.Size(315, 20);
             this.txtBuscar.TabIndex = 7;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
-            
             // 
             // label1
             // 
