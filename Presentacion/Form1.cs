@@ -33,7 +33,7 @@ namespace Presentacion
             }
             catch (Exception)
             {
-                MessageBox.Show("imagen inválida o no disponible", "error al cargar la URL",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("imagen inválida o no disponible", "error al cargar la URL",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 pbArticulo.Load("https://alasmutual.com/nueva/wp-content/themes/consultix/images/no-image-found-360x250.png"); 
                  
             }
