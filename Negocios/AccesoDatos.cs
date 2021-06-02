@@ -13,6 +13,7 @@ namespace Negocios
         private SqlCommand comando;
         private SqlDataReader lector;
 
+        //AGREGO COMENTARIOS DE PRUEBA PABLO
         //CADENAS PABLO
 
         string cadenaConexionFede = "data source=DESKTOP-EHB4SN8; initial catalog=CATALOGO_DB; integrated security=TRUE";
