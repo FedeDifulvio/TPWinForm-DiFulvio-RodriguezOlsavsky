@@ -120,3 +120,7 @@ C:\Users\Pablo\Documents\Proyectos Programación 3\TPWinForm-DiFulvio-RodriguezO
 C:\Users\Pablo\Documents\Proyectos Programación 3\TPWinForm-DiFulvio-RodriguezOlsavsky\AppWeb\bin\Negocios.dll
 C:\Users\Pablo\Documents\Proyectos Programación 3\TPWinForm-DiFulvio-RodriguezOlsavsky\AppWeb\bin\Dominio.pdb
 C:\Users\Pablo\Documents\Proyectos Programación 3\TPWinForm-DiFulvio-RodriguezOlsavsky\AppWeb\bin\Negocios.pdb
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\AppWeb\bin\Dominio.dll
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\AppWeb\bin\Negocios.dll
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\AppWeb\bin\Dominio.pdb
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TP WinForm\AppWeb\bin\Negocios.pdb
