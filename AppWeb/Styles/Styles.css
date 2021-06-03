@@ -1,11 +1,15 @@
 ﻿body {
-    background-color: #b08fbb;
+   
 }
 
 * {
-    background-color: #b08fbb;
-    *
+   color: white;
+    
 } 
+
+.foot{
+    color: black;
+}
 
 .logo{
     width: 60px; 
@@ -13,17 +17,30 @@
     margin-left: 5px;
 }
 
-.home-carrousel {
-    
-    height: 100%;
-  ;
-}
 
 .home {
+    height: 80vh;
+    width: 100%;
+    background-image: url(http://www.karlosperu.com/wp-content/uploads/2019/04/D%C3%ADa-Internacional-del-Celular-Nokia-5.1-Plus.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+.home-welcome {
     display: flex;
     justify-content: center;
     align-items: center;
-} 
+}
+
+.boton-home{
+    font-size: 22px;
+}
+
+home-text{
+    z-index:2;
+}
 
 
 .title {
