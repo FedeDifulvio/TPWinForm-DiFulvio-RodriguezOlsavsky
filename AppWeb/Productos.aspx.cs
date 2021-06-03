@@ -24,7 +24,8 @@ namespace AppWeb
             catch (Exception ex)
             {
 
-                Response.Redirect("PaginaError.aspx");
+                //Response.Redirect("PaginaError.aspx");
+                throw;
             }
         }
 
