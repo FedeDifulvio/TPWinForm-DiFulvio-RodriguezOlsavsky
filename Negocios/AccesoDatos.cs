@@ -21,7 +21,7 @@ namespace Negocios
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection(cadenaConexionFede);  
+            conexion = new SqlConnection(cadenaConexionPablo);  
             comando = new SqlCommand(); 
         }
 

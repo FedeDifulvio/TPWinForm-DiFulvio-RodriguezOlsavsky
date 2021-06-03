@@ -116,3 +116,7 @@ C:\Users\Pablo\Documents\Proyectos Programación 3\TPWinForm-DiFulvio-RodriguezO
 C:\Users\Pablo\Documents\Proyectos Programación 3\TPWinForm-DiFulvio-RodriguezOlsavsky\AppWeb\obj\Debug\AppWeb.csproj.CopyComplete
 C:\Users\Pablo\Documents\Proyectos Programación 3\TPWinForm-DiFulvio-RodriguezOlsavsky\AppWeb\obj\Debug\AppWeb.dll
 C:\Users\Pablo\Documents\Proyectos Programación 3\TPWinForm-DiFulvio-RodriguezOlsavsky\AppWeb\obj\Debug\AppWeb.pdb
+C:\Users\Pablo\Documents\Proyectos Programación 3\TPWinForm-DiFulvio-RodriguezOlsavsky\AppWeb\bin\Dominio.dll
+C:\Users\Pablo\Documents\Proyectos Programación 3\TPWinForm-DiFulvio-RodriguezOlsavsky\AppWeb\bin\Negocios.dll
+C:\Users\Pablo\Documents\Proyectos Programación 3\TPWinForm-DiFulvio-RodriguezOlsavsky\AppWeb\bin\Dominio.pdb
+C:\Users\Pablo\Documents\Proyectos Programación 3\TPWinForm-DiFulvio-RodriguezOlsavsky\AppWeb\bin\Negocios.pdb
