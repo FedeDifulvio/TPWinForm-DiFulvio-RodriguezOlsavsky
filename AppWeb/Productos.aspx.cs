@@ -23,9 +23,10 @@ namespace AppWeb
             }
             catch (Exception ex)
             {
+                                
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("PaginaError.aspx");
 
-                //Response.Redirect("PaginaError.aspx");
-                throw;
             }
         }
 

@@ -9,9 +9,10 @@ namespace AppWeb
 {
     public partial class PaginaError : System.Web.UI.Page
     {
+        public string error;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            error = (string)Session["error"];
         }
     }
 }
