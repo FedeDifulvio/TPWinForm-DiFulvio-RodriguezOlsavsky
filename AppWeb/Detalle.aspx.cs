@@ -16,7 +16,7 @@ namespace AppWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             int id = int.Parse(Request.QueryString["id"]);
-            List<Articulos> articulos = (List<Articulos>)Session["lista"];
+            List<Articulos> articulos = (List<Articulos>)Session["listaArticulos"];
             detalle = articulos.Find(x => x.ID == id);
         }
 

@@ -17,7 +17,7 @@
                     <hr />
                     <h1 class="titles precio"> $<%= Math.Round(detalle.Precio)%></h1>
                     <br />
-                    <button type="button" class="btn btn-primary btn-lg">Agregar al Carrito</button>
+                     <a href="Carrito.aspx?id=<%=detalle.ID %>&ban=1"  class="btn btn-primary btn-lg">Agregar al Carrito</a>
 
                 </div>
             </div>

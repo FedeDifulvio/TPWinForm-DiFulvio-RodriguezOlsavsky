@@ -19,7 +19,7 @@ namespace AppWeb
             try
             {
                 lista = negocio.listar();
-                Session.Add("lista", lista);
+                Session.Add("listaArticulos", lista);
             }
             catch (Exception ex)
             {

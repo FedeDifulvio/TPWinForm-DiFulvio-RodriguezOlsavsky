@@ -1,6 +1,5 @@
 ﻿body {
-     background-color: #c5e3f6;
-    
+     background-color: #c5e3f6;    
 }
 
 * {
@@ -62,8 +61,8 @@ home-text{
 }
 
 .btn-detalle {
-    margin-left: 50px;
-    width: 160px;
+    margin-left:20px;
+   
     
 }
 

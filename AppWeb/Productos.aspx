@@ -25,6 +25,7 @@
                             </ul>
                             <div class="card-body">
                                 <a href="detalle.aspx?id=<%=item.ID %>" class="btn btn-dark btn-detalle">Detalle</a>
+                                <a href="Carrito.aspx?id=<%=item.ID %>&ban=1"  class="btn btn-primary">Agregar Carrito</a>
                             </div>
                             
                         </div>
