@@ -11,16 +11,7 @@ namespace AppWeb
 {
 
 
-    public partial class Carrito
+    public partial class carritoVacio
     {
-
-        /// <summary>
-        /// Control txtCantidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCantidad;
     }
 }

@@ -12,7 +12,10 @@ namespace AppWeb
     {
         public List<int> listaID;
         int id;
+        public decimal PrecioFinal = 0;
+        public decimal PrecioParcial = 1000; 
         int bandera;
+        bool carritoVacio = false; 
         public List<Articulos> listaCarrito = new List<Articulos>();
         public List<Articulos> listaArticulos;
 
@@ -24,8 +27,13 @@ namespace AppWeb
 
             if (listaID==null)
             {
-                listaID = new List<int>(); 
-            }   
+                listaID = new List<int>();
+            }
+
+            if (carritoVacio)
+            {
+                Response.Redirect("carritoVacio.aspx");
+            }
 
             if(Request.QueryString["ban"]== null)
             {
@@ -42,6 +50,7 @@ namespace AppWeb
 
             if (bandera == 1)
             {
+                
                 id = int.Parse(Request.QueryString["id"]);
 
                 if (listaID.Find(x => x == id) == 0)
@@ -49,7 +58,7 @@ namespace AppWeb
                     listaID.Add(id);
                     Session.Add("listaID", listaID);    
                 }
-
+                carritoVacio = false;
                 actualizarListaCarrito(listaID);
 
             } 
@@ -66,7 +75,12 @@ namespace AppWeb
                 actualizarListaCarrito(listaID);
             }
 
-            
+            if (carritoVacio)
+            {
+                Response.Redirect("carritoVacio.aspx");
+            }
+
+
         } 
 
         public void actualizarListaCarrito(List<int> listaID)
@@ -75,7 +89,29 @@ namespace AppWeb
             {
                 listaCarrito.Add(listaArticulos.Find(articulo=> articulo.ID == item));  
                
+            } 
+
+            if(listaCarrito.Count == 0)
+            {
+                carritoVacio = true;
             }
+        } 
+
+        public void calculoPrecioFinal(decimal precio, string cantidad) 
+        {    
+
+            PrecioFinal +=precio;  
+        } 
+
+        public void enviarPrecioParcial (decimal precio)
+        {
+            PrecioParcial = precio; 
         }
+
+        protected void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            calculoPrecioFinal(PrecioParcial, txtCantidad.Text);  
+           
+        } 
     }
 }
