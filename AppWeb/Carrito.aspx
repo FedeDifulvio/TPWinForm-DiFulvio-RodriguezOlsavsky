@@ -6,7 +6,7 @@
     <div class="container-fluid" style="background-color: #b08fbb;">
         <div class="container">
             <ul class="list-group">
-
+                   <!-- comentario -->
                 <% foreach (Dominio.Articulos item in listaCarrito)
                     {
 
