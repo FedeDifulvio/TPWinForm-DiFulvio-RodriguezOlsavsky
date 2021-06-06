@@ -35,13 +35,18 @@ namespace AppWeb
             {
                 eliminarDelCarrito();
             }
-            else if (int.Parse(Request.QueryString["ban"]) == 4)
+            else if (int.Parse(Request.QueryString["ban"]) == 4 && bool.Parse(Request.QueryString["load"]) == true)
             {
                 sumarCantidadArticulo();
             }
-            else if (int.Parse(Request.QueryString["ban"]) == 1)
+            else if (int.Parse(Request.QueryString["ban"]) == 5 && bool.Parse(Request.QueryString["load"]) == true)
+            {
+                restarCantidadArticulo();
+            }
+            else
             {
                 agregarAlCarrito();
+
             }
 
             if (carritoVacio)
@@ -88,6 +93,25 @@ namespace AppWeb
             Modificado.Cantidad++;
             listaCarrito.Insert(index, Modificado);
             //  Session.Add("listaCarrito", listaCarrito);
+            Response.Redirect("Carrito.aspx?load=false");
+        }
+
+        public void restarCantidadArticulo()
+        {
+
+            int idModificado = int.Parse(Request.QueryString["id"]);
+            Articulos Modificado = listaCarrito.Find(articulo => articulo.ID == idModificado);
+
+            int index = listaCarrito.IndexOf(Modificado);
+
+            listaCarrito.RemoveAt(index);
+            if (Modificado.Cantidad > 1)
+            {
+            Modificado.Cantidad--;
+            }
+            listaCarrito.Insert(index, Modificado);
+            //  Session.Add("listaCarrito", listaCarrito);
+            Response.Redirect("Carrito.aspx?load=false");
         }
 
         public void verificarCarritoVacio()
