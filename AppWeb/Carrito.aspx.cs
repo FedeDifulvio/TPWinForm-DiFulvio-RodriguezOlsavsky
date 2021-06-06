@@ -10,69 +10,38 @@ namespace AppWeb
 {
     public partial class Carrito : System.Web.UI.Page
     {
-        public List<int> listaID;
-        int id;
+
         public decimal PrecioFinal = 0;
-        public decimal PrecioParcial = 1000; 
-        int bandera;
-        bool carritoVacio = false; 
-        public List<Articulos> listaCarrito = new List<Articulos>();
+        bool carritoVacio = false;
+        public List<Articulos> listaCarrito;
         public List<Articulos> listaArticulos;
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
             listaArticulos = (List<Articulos>)Session["listaArticulos"];
-            listaID = (List<int>)Session["listaID"];
+            listaCarrito = (List<Articulos>)Session["listaCarrito"];
 
-            if (listaID==null)
+            if (listaCarrito == null)
             {
-                listaID = new List<int>();
+                listaCarrito = new List<Articulos>();
             }
 
-            if (carritoVacio)
+            if (Request.QueryString["ban"] == null)
             {
-                Response.Redirect("carritoVacio.aspx");
+                verificarCarritoVacio();
             }
-
-            if(Request.QueryString["ban"]== null)
+            else if (int.Parse(Request.QueryString["ban"]) == 3)
             {
-                bandera = 2; 
+                eliminarDelCarrito();
             }
-            else if(int.Parse(Request.QueryString["ban"]) == 3)
+            else if (int.Parse(Request.QueryString["ban"]) == 4)
             {
-                bandera = 3; 
+                sumarCantidadArticulo();
             }
-            else
+            else if (int.Parse(Request.QueryString["ban"]) == 1)
             {
-                bandera = 1;   
-            }
-
-            if (bandera == 1)
-            {
-                
-                id = int.Parse(Request.QueryString["id"]);
-
-                if (listaID.Find(x => x == id) == 0)
-                {
-                    listaID.Add(id);
-                    Session.Add("listaID", listaID);    
-                }
-                carritoVacio = false;
-                actualizarListaCarrito(listaID);
-
-            } 
-            else if(bandera == 3)
-            {
-                id = int.Parse(Request.QueryString["id"]);
-                listaID.Remove(id);
-                actualizarListaCarrito(listaID);
-                Session.Add("listaID", listaID);
-                
-            } 
-            else if (bandera == 2)
-            {
-                actualizarListaCarrito(listaID);
+                agregarAlCarrito();
             }
 
             if (carritoVacio)
@@ -81,37 +50,54 @@ namespace AppWeb
             }
 
 
-        } 
+        }
 
-        public void actualizarListaCarrito(List<int> listaID)
+
+
+        public void agregarAlCarrito()
         {
-            foreach(int item in listaID)
-            {
-                listaCarrito.Add(listaArticulos.Find(articulo=> articulo.ID == item));  
-               
-            } 
+            int id = int.Parse(Request.QueryString["id"]);
 
-            if(listaCarrito.Count == 0)
+            if (listaCarrito.Find(x => x.ID == id) == null)
+            {
+                listaCarrito.Add(listaArticulos.Find(articulo => articulo.ID == id));
+                Session.Add("listaCarrito", listaCarrito);
+            }
+            carritoVacio = false;
+        }
+
+        public void eliminarDelCarrito()
+        {
+
+            int id = int.Parse(Request.QueryString["id"]);
+            Articulos eliminado = listaCarrito.Find(articulo => articulo.ID == id);
+            listaCarrito.Remove(eliminado);
+            // Session.Add("listaCarrito", listaCarrito);
+
+            verificarCarritoVacio();
+        }
+
+        public void sumarCantidadArticulo()
+        {
+            int idModificado = int.Parse(Request.QueryString["id"]);
+            Articulos Modificado = listaCarrito.Find(articulo => articulo.ID == idModificado);
+
+            int index = listaCarrito.IndexOf(Modificado);
+
+            listaCarrito.RemoveAt(index);
+            Modificado.Cantidad++;
+            listaCarrito.Insert(index, Modificado);
+            //  Session.Add("listaCarrito", listaCarrito);
+        }
+
+        public void verificarCarritoVacio()
+        {
+            if (listaCarrito.Count == 0)
             {
                 carritoVacio = true;
             }
-        } 
-
-        public void calculoPrecioFinal(decimal precio, string cantidad) 
-        {    
-
-            PrecioFinal +=precio;  
-        } 
-
-        public void enviarPrecioParcial (decimal precio)
-        {
-            PrecioParcial = precio; 
         }
 
-        protected void txtCantidad_TextChanged(object sender, EventArgs e)
-        {
-            calculoPrecioFinal(PrecioParcial, txtCantidad.Text);  
-           
-        } 
     }
+
 }

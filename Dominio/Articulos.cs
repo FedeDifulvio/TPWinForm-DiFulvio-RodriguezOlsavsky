@@ -20,9 +20,16 @@ namespace Dominio
 
         public decimal Precio { get; set; }
 
+        public int Cantidad { get; set; } 
+
         public Marca Marca { get; set; }
 
-        public Categorias Categoria { get; set; }
+        public Categorias Categoria { get; set; } 
+
+        public Articulos()
+        {
+            Cantidad = 1; 
+        }
 
     }
 }

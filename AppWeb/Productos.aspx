@@ -21,7 +21,7 @@
                                 <p class="card-text" style="color:gray"> <% =item.Descripcion %></p>
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item fw-bold" style="font-size:30px; text-align:center">$<% =Math.Round(item.Precio) %></li>
+                                <li class="list-group-item fw-bold" style="font-size:30px; text-align:center">$<% =Math.Round(item.Precio, 2) %></li>
                             </ul>
                             <div class="card-body">
                                 <a href="detalle.aspx?id=<%=item.ID %>" class="btn btn-dark btn-detalle">Detalle</a>
