@@ -11,15 +11,16 @@ namespace AppWeb
 {
     public partial class Productos : System.Web.UI.Page
     {
-        public List<Articulos> lista;
+        public List<Articulos> lista; 
         public string noImage = "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg";
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
-            {
-                lista = negocio.listar();
-                Session.Add("listaArticulos", lista);
+            {  
+                    lista = negocio.listar();
+                    Session.Add("listaArticulos", lista);
+             
             }
             catch (Exception ex)
             {
@@ -38,5 +39,6 @@ namespace AppWeb
             }
             else return false;
         }
+
     }
 }

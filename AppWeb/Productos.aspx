@@ -4,11 +4,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid" style="background-color:#b08fbb;">
         <div class="container">
-            <div class="row">   
-            <div class="col-md-4">   </div>
-            <div class="col-md-4 mt-5 title"> <h1> Productos</h1>  </div>
-            <div class="col-md-4">   </div>
-        </div>
+          <div class="row">   
+              <div class="col-md-4">   </div>
+              <div class="col-md-4 mt-5 title"> <h1> Productos</h1>  </div>
+              <div class="col-md-4">   </div>
+          </div> 
         <div class="row mt-5"> 
             <%foreach (Dominio.Articulos item in lista)
                 {

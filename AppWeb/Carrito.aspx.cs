@@ -77,7 +77,6 @@ namespace AppWeb
             int id = int.Parse(Request.QueryString["id"]);
             Articulos eliminado = listaCarrito.Find(articulo => articulo.ID == id);
             listaCarrito.Remove(eliminado);
-            // Session.Add("listaCarrito", listaCarrito);
 
             verificarCarritoVacio();
         }
@@ -92,7 +91,7 @@ namespace AppWeb
             listaCarrito.RemoveAt(index);
             Modificado.Cantidad++;
             listaCarrito.Insert(index, Modificado);
-            //  Session.Add("listaCarrito", listaCarrito);
+            
             Response.Redirect("Carrito.aspx?load=false");
         }
 
@@ -110,7 +109,7 @@ namespace AppWeb
             Modificado.Cantidad--;
             }
             listaCarrito.Insert(index, Modificado);
-            //  Session.Add("listaCarrito", listaCarrito);
+       
             Response.Redirect("Carrito.aspx?load=false");
         }
 
