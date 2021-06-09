@@ -9,6 +9,12 @@
               <div class="col-md-4 mt-5 title"> <h1> Productos</h1>  </div>
               <div class="col-md-4">   </div>
           </div> 
+             <div class="row">   
+              <div class="col-md-2">   </div>
+              <div class="col-md-7">  <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control me-2 search"></asp:TextBox> </div>
+              <div class="col-md-3">
+                  <asp:Button ID="Button1" runat="server" Text="Buscar" OnClick="Button1_Click" CssClass="btn btn-primary" /> </div>
+          </div> 
         <div class="row mt-5"> 
             <%foreach (Dominio.Articulos item in lista)
                 {

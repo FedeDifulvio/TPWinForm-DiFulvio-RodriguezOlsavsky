@@ -15,23 +15,31 @@ namespace AppWeb
         public string noImage = "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg";
         protected void Page_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            try
-            {  
+            if (Request.QueryString["filter"] == null)
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                try
+                {
                     lista = negocio.listar();
                     Session.Add("listaArticulos", lista);
-             
+                }
+                catch (Exception ex)
+                {
+
+                    Session.Add("error", ex.Message.ToString());
+                    Response.Redirect("PaginaError.aspx");
+
+                }
+
             }
-            catch (Exception ex)
+
+            else if (bool.Parse(Request.QueryString["filter"]) == true)
             {
-                                
-                Session.Add("error", ex.Message.ToString());
-                Response.Redirect("PaginaError.aspx");
-
+                lista = (List<Articulos>)Session["listaFiltrada"];
             }
-        }
 
-       public bool imageError(string image)
+        }
+        public bool imageError(string image)
         {
             if (!(image.Contains("https:/")) || image == null)
             {
@@ -40,5 +48,14 @@ namespace AppWeb
             else return false;
         }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string filtro = TextBox1.Text;
+            List<Articulos> listaArticulos = (List<Articulos>)Session["listaArticulos"];
+            List<Articulos> listaFiltrada = listaArticulos.FindAll(x => x.Nombre.ToLower().Contains(filtro.ToLower()));
+            Session.Add("listaFiltrada", listaFiltrada);
+            Response.Redirect("Productos.aspx?filter=true");
+
+        }
     }
 }
